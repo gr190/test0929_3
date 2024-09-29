@@ -1,0 +1,197 @@
+/* 全体のフォントを美しい明朝体に設定 */
+body {
+    font-family: 'Noto Serif JP', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    /* 背景に大人っぽい淡い色調の画像を設定 */
+    background: url('https://source.unsplash.com/1600x900/?abstract,soft') no-repeat center center fixed;
+    background-size: cover;
+}
+
+#game-container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    max-width: 700px;
+    width: 90%;
+}
+
+h1 {
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+#settings {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+#settings label {
+    margin-right: 5px;
+    font-size: 1.1em;
+}
+
+#settings select {
+    padding: 5px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#settings button {
+    padding: 10px 20px;
+    font-size: 1.1em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#settings button:hover {
+    background-color: #45a049;
+}
+
+#score {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+#score span {
+    margin: 0 20px;
+}
+
+#timer {
+    margin-bottom: 10px;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #555;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(8, 60px);
+    grid-template-rows: repeat(8, 60px);
+    gap: 2px;
+    background-color: #2E8B57;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    #board {
+        grid-template-columns: repeat(8, 50px);
+        grid-template-rows: repeat(8, 50px);
+    }
+}
+
+@media (max-width: 480px) {
+    #board {
+        grid-template-columns: repeat(8, 40px);
+        grid-template-rows: repeat(8, 40px);
+    }
+}
+
+.cell {
+    background-color: #3CB371;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    border-radius: 5px;
+}
+
+.disc {
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.disc.black {
+    background-color: #000;
+    box-shadow: inset 0 0 5px #555;
+}
+
+.disc.white {
+    background-color: #fff;
+    box-shadow: inset 0 0 5px #aaa;
+}
+
+.cell:hover .disc {
+    transform: scale(1.1);
+}
+
+#status {
+    margin-top: 10px;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #333;
+}
+
+/* モーダルのスタイル */
+#result-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#result-modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.modal-content h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.modal-content button {
+    padding: 10px 20px;
+    font-size: 1.1em;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+    background-color: #d32f2f;
+}
+
+/* エフェクトのアニメーション */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
